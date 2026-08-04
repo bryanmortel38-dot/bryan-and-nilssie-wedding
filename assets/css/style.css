@@ -91,18 +91,10 @@ nav{
 
 }
 
-.logo{
-
-    font-family:'Cormorant Garamond',serif;
-
-    color:white;
-
-    font-size:32px;
-
-    cursor:pointer;
-
-    transition:.35s ease;
-
+.logo img {
+    width: 70px;
+    height: auto;
+    display: block;
 }
 
 .logo:hover{
@@ -197,7 +189,6 @@ nav a.active::after{
 ===================================================== */
 
 header{
-
     height:100vh;
 
     display:flex;
@@ -211,6 +202,10 @@ header{
     text-align:center;
 
     gap:10px;
+
+    padding-top:60px;
+
+    box-sizing:border-box;
 
     background:
         linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
