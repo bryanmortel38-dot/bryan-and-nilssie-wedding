@@ -189,7 +189,7 @@ nav a.active::after{
 ===================================================== */
 
 header{
-    height:100vh;
+    height:106vh;
 
     display:flex;
 
@@ -199,7 +199,7 @@ header{
 
     align-items:center;
 
-    text-align:center;
+    text-align:center 50%;
 
     gap:10px;
 
@@ -221,13 +221,13 @@ header{
 
 h2{
 
-    font-family:'Cormorant Garamond',serif;
+    font-family:'Great Vibes',cursive;
 
-    font-size:72px;
+    font-size:100px;
 
-    font-weight:600;
+    font-weight:400;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
     line-height:1.1;
 
@@ -1047,6 +1047,17 @@ footer{
     color:white;
     text-align:center;
     padding:60px 20px;
+
+}
+
+.footer-logo{
+
+    width:90px;
+    height:auto;
+
+    display:block;
+
+    margin:0 auto;
 
 }
 
