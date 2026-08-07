@@ -175,7 +175,7 @@ if(rsvpForm){
         })
         .then(() => {
 
-            window.location.href = "/success";
+            window.location.href = "success.html";
 
         })
         .catch(() => {
