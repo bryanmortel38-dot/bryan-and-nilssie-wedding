@@ -147,3 +147,43 @@ window.addEventListener("scroll", () => {
     });
 
 });
+
+/* =====================================================
+   RSVP FORM
+===================================================== */
+
+const rsvpForm = document.querySelector(".rsvp-form");
+
+if(rsvpForm){
+
+    rsvpForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const formData = new FormData(rsvpForm);
+
+        fetch("/", {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/x-www-form-urlencoded"
+            },
+
+            body:new URLSearchParams(formData).toString()
+
+        })
+        .then(() => {
+
+            window.location.href = "/success";
+
+        })
+        .catch(() => {
+
+            alert("Something went wrong. Please try again.");
+
+        });
+
+    });
+
+}
