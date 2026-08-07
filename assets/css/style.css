@@ -391,7 +391,9 @@ h3{
 
     }
 
-}/* =====================================================
+}
+
+/* =====================================================
    TIMELINE
 ===================================================== */
 
@@ -464,6 +466,7 @@ h3{
     line-height:1.7;
 
 }
+
 /* =====================================================
    WEDDING DETAILS
 ===================================================== */
@@ -1367,28 +1370,40 @@ footer span{
     }
 
     /* ==========================
-       TIMELINE
+   TIMELINE
     ========================== */
 
-    .timeline{
+        .schedule-list{
 
-        gap:30px;
+    gap:25px;
 
-    }
+        }
 
-    .timeline-item{
+        .schedule-item{
 
-        padding:20px;
+        grid-template-columns:1fr;
 
-    }
+        gap:15px;
 
-    .circle{
+        width:100%;
 
-        width:65px;
-        height:65px;
-        font-size:28px;
+        }
 
-    }
+        .schedule-time{
+
+        width:100%;
+
+        box-sizing:border-box;
+
+        }
+
+        .schedule-content{
+
+        width:100%;
+
+        box-sizing:border-box;
+
+        }
 
     /* ==========================
        DETAILS
