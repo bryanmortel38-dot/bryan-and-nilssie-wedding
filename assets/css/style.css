@@ -1246,32 +1246,32 @@ footer span{
 
     nav{
 
-        padding:15px 20px;
+        padding:15px 16px;
 
         gap:10px;
 
     }
 
     nav ul{
-
         width:100%;
-
+        
         display:flex;
-
+        
         flex-wrap:nowrap;
-
+        
         justify-content:flex-start;
-
-        gap:22px;
-
+        
+        gap:18px;
+        
         overflow-x:auto;
-
+        
         white-space:nowrap;
-
+        
         padding-bottom:5px;
-
+        
         scrollbar-width:none;
-
+        
+        -webkit-overflow-scrolling:touch;
     }
 
     nav ul::-webkit-scrollbar{
@@ -1330,7 +1330,13 @@ footer span{
     .countdown{
 
         gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
 
+    }
+
+    .countdown div{
+     min-width:60px;
     }
 
     .time{
@@ -1342,7 +1348,7 @@ footer span{
 
     .time span{
 
-        font-size:28px;
+        font-size:26px;
 
     }
 
@@ -1365,7 +1371,7 @@ footer span{
 
     section{
 
-        padding:80px 7%;
+        padding:65px 6%;
 
     }
 
@@ -1416,6 +1422,7 @@ footer span{
     .details-grid{
 
         grid-template-columns:1fr;
+        gap:20px;
 
     }
 
@@ -1426,6 +1433,7 @@ footer span{
     .maps-grid{
 
         grid-template-columns:1fr;
+        gap:20px;
 
     }
 
@@ -1442,12 +1450,14 @@ footer span{
     .gallery-grid{
 
         columns:1;
+        column-gap:0;
 
     }
 
     .gallery-grid img{
 
         width:100%;
+        display:block;
 
     }
 
@@ -1459,6 +1469,7 @@ footer span{
 
         width:100%;
         height:auto;
+        display:block;
 
     }
 
@@ -1468,14 +1479,16 @@ footer span{
 
     .rsvp form{
 
-        padding:25px;
+        padding:20px;
+        box-sizing:border-box;
 
     }
 
     .rsvp input,
     .rsvp textarea,
     .rsvp select{
-
+        width:100%;
+        box-sizing:border-box;
         font-size:16px;
 
     }
@@ -1491,13 +1504,19 @@ footer span{
 
     }
 
+    .rsvp button{
+        width:100%;
+        min-height:50px;
+        box-sizing:border-box;
+    }
+
     /* ==========================
        FOOTER
     ========================== */
 
     footer{
 
-        padding:45px 20px;
+        padding:50px 20px;
 
     }
 
