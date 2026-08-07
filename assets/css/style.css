@@ -1390,6 +1390,8 @@ footer span{
         }
 
         .schedule-time{
+        
+        order:2;
 
         width:100%;
 
@@ -1398,6 +1400,8 @@ footer span{
         }
 
         .schedule-content{
+
+        order:1;
 
         width:100%;
 
