@@ -1754,3 +1754,212 @@ footer span{
     }
 
 }
+/* =========================================
+   GALLERY — MORE PHOTOS CARD
+========================================= */
+
+.gallery-more-card{
+    position:relative;
+    overflow:hidden;
+
+    cursor:pointer;
+
+    border-radius:inherit;
+}
+
+.gallery-more-card .gallery-photo{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform 0.4s ease;
+}
+
+.gallery-more-overlay{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,0.48);
+
+    transition:background 0.3s ease;
+}
+
+.gallery-more-count{
+    font-family:"Montserrat", sans-serif;
+
+    font-size:18px;
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    color:#F9F6F1;
+
+    text-transform:uppercase;
+
+    text-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+
+.gallery-more-card:hover .gallery-photo{
+    transform:scale(1.04);
+}
+
+.gallery-more-card:hover .gallery-more-overlay{
+    background:rgba(0,0,0,0.58);
+}
+
+
+/* =========================================
+   HIDDEN ALBUM PHOTOS
+========================================= */
+
+.gallery-hidden{
+    display:none !important;
+}
+
+/* =========================================
+   LIGHTBOX NAVIGATION
+========================================= */
+
+.lightbox-prev,
+.lightbox-next{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    color:#F9F6F1;
+
+    font-size:36px;
+    line-height:1;
+
+    cursor:pointer;
+
+    z-index:1002;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.lightbox-prev{
+
+    left:40px;
+
+}
+
+
+.lightbox-next{
+
+    right:40px;
+
+}
+
+
+.lightbox-prev:hover,
+.lightbox-next:hover{
+
+    background:rgba(255,255,255,0.22);
+
+    transform:translateY(-50%) scale(1.08);
+
+}
+
+
+/* =========================================
+   LIGHTBOX PHOTO COUNTER
+========================================= */
+
+.lightbox-counter{
+
+    position:absolute;
+
+    left:50%;
+    bottom:30px;
+
+    transform:translateX(-50%);
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,0.45);
+
+    color:#F9F6F1;
+
+    font-family:"Montserrat", sans-serif;
+
+    font-size:14px;
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    z-index:1002;
+
+}
+
+
+/* =========================================
+   MOBILE LIGHTBOX
+========================================= */
+
+@media (max-width:768px){
+
+    .lightbox-prev,
+    .lightbox-next{
+
+        width:46px;
+        height:46px;
+
+        font-size:28px;
+
+    }
+
+
+    .lightbox-prev{
+
+        left:12px;
+
+    }
+
+
+    .lightbox-next{
+
+        right:12px;
+
+    }
+
+
+    .lightbox-counter{
+
+        bottom:20px;
+
+        font-size:12px;
+
+        padding:7px 13px;
+
+    }
+
+}

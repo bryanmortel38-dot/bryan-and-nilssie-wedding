@@ -78,7 +78,7 @@ fades.forEach(section=>{
 });
 
 /* ==========================
-   LIGHTBOX
+   LIGHTBOX + GALLERY ALBUM
 ========================== */
 
 const galleryPhotos =
@@ -93,21 +93,185 @@ document.querySelector(".lightbox-image");
 const closeButton =
 document.querySelector(".close");
 
-galleryPhotos.forEach(photo=>{
+let currentPhotoIndex = 0;
+
+
+/* ==========================
+   CREATE NAVIGATION BUTTONS
+========================== */
+
+const prevButton = document.createElement("button");
+
+prevButton.className = "lightbox-prev";
+prevButton.innerHTML = "&#10094;";
+
+const nextButton = document.createElement("button");
+
+nextButton.className = "lightbox-next";
+nextButton.innerHTML = "&#10095;";
+
+lightbox.appendChild(prevButton);
+lightbox.appendChild(nextButton);
+
+
+/* ==========================
+   CREATE PHOTO COUNTER
+========================== */
+
+const photoCounter = document.createElement("div");
+
+photoCounter.className = "lightbox-counter";
+
+lightbox.appendChild(photoCounter);
+
+
+/* ==========================
+   SHOW PHOTO
+========================== */
+
+function showPhoto(index){
+
+    currentPhotoIndex = index;
+
+    const photo = galleryPhotos[currentPhotoIndex];
+
+    lightboxImage.src = photo.src;
+
+    photoCounter.textContent =
+        `${currentPhotoIndex + 1} / ${galleryPhotos.length}`;
+
+}
+
+
+/* ==========================
+   OPEN LIGHTBOX
+========================== */
+
+galleryPhotos.forEach((photo, index)=>{
 
     photo.addEventListener("click",()=>{
 
         lightbox.classList.add("active");
 
-        lightboxImage.src = photo.src;
+        showPhoto(index);
 
     });
 
 });
 
+
+/* ==========================
+   MORE PHOTOS CARD CLICK
+========================== */
+
+const moreGalleryCard =
+document.querySelector(".gallery-more-card");
+
+if(moreGalleryCard){
+
+    moreGalleryCard.addEventListener("click",()=>{
+
+        lightbox.classList.add("active");
+
+        showPhoto(5);
+
+    });
+
+}
+
+
+/* ==========================
+   NEXT PHOTO
+========================== */
+
+nextButton.addEventListener("click",()=>{
+
+    currentPhotoIndex++;
+
+    if(currentPhotoIndex >= galleryPhotos.length){
+
+        currentPhotoIndex = 0;
+
+    }
+
+    showPhoto(currentPhotoIndex);
+
+});
+
+
+/* ==========================
+   PREVIOUS PHOTO
+========================== */
+
+prevButton.addEventListener("click",()=>{
+
+    currentPhotoIndex--;
+
+    if(currentPhotoIndex < 0){
+
+        currentPhotoIndex = galleryPhotos.length - 1;
+
+    }
+
+    showPhoto(currentPhotoIndex);
+    
+
+});
+
+
+/* ==========================
+   CLOSE LIGHTBOX
+========================== */
+
 closeButton.addEventListener("click",()=>{
 
     lightbox.classList.remove("active");
+
+});
+
+/* ==========================
+   MORE PHOTOS COUNTER
+========================== */
+
+const hiddenGalleryPhotos =
+document.querySelectorAll(".gallery-hidden");
+
+const morePhotoCount =
+document.querySelector(".gallery-more-count");
+
+if(morePhotoCount){
+
+    morePhotoCount.textContent =
+        `+${hiddenGalleryPhotos.length} MORE`;
+
+}
+
+/* ==========================
+   KEYBOARD NAVIGATION
+========================== */
+
+
+document.addEventListener("keydown",(event)=>{
+
+    if(!lightbox.classList.contains("active")) return;
+
+    if(event.key === "ArrowRight"){
+
+        nextButton.click();
+
+    }
+
+    if(event.key === "ArrowLeft"){
+
+        prevButton.click();
+
+    }
+
+    if(event.key === "Escape"){
+
+        closeButton.click();
+
+    }
 
 });
 
