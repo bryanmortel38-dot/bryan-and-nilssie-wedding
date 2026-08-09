@@ -958,6 +958,10 @@ header{
     background:var(--gold);
 
 }
+
+.thank-you-title{
+    font-size:64px;
+}
 /* =====================================================
    LOVE QUOTE
 ===================================================== */
@@ -1491,6 +1495,11 @@ footer span{
         box-sizing:border-box;
         font-size:16px;
 
+    }
+
+    .thank-you-title{
+    font-size:64px;
+    
     }
 
     /* ==========================
