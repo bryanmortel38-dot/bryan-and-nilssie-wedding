@@ -1559,9 +1559,9 @@ footer span{
 
     padding:60px 20px;
 
-    background-image:url("../images/success.jpg");
+    background-image:url("../images/success01.jpg");
     background-size:cover;
-    background-position:center center;
+    background-position:center center 30%;
     background-repeat:no-repeat;
 
     overflow:hidden;
