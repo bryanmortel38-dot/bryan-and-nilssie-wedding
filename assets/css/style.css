@@ -399,71 +399,300 @@ h3{
 
 .timeline{
 
-    max-width:700px;
+    max-width:900px;
 
-    margin:80px auto 0;
+    margin:70px auto 0;
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:60px;
+    position:relative;
 
 }
+
+
+/* GOLD VERTICAL LINE */
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:115px;
+
+    top:55px;
+
+    bottom:230px;
+
+    width:1px;
+
+    background:rgba(198,161,91,.45);
+
+}
+
+
+/* EACH STORY ITEM */
 
 .timeline-item{
 
-    text-align:center;
+    display:grid;
+
+    grid-template-columns:230px 1fr;
+
+    column-gap:45px;
+
+    position:relative;
+
+    min-height:150px;
+
+    margin-bottom:45px;
 
 }
 
-.circle{
 
-    width:90px;
+/* PHOTO */
 
-    height:90px;
+.timeline-photo{
 
-    margin:auto;
+    width:110px;
+
+    height:110px;
+
+    margin:0 auto;
 
     border-radius:50%;
 
-    background:var(--primary);
+    overflow:hidden;
 
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:40px;
-
-    margin-bottom:20px;
+    background:var(--cream);
 
     box-shadow:0 10px 25px rgba(0,0,0,.15);
 
+    position:relative;
+
+    z-index:2;
+
 }
 
-.timeline-item h4{
 
-    font-family:'Cormorant Garamond', serif;
+.timeline-photo img{
 
-    font-size:36px;
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* CONTENT */
+
+.timeline-content{
+
+    padding-top:12px;
+
+    text-align:left;
+
+}
+
+
+.timeline-content h4{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:30px;
 
     color:var(--primary);
 
-    margin-bottom:10px;
+    margin:0 0 10px;
+
+    line-height:1.2;
 
 }
 
-.timeline-item p{
+
+.timeline-content h4 span{
+
+    font-size:24px;
+
+    margin-right:8px;
+
+}
+
+
+.timeline-content p{
 
     font-size:18px;
 
     color:#666;
 
     line-height:1.7;
+
+    margin:0;
+
+    max-width:600px;
+
+}
+
+
+/* HEARTS BETWEEN MILESTONES */
+
+.timeline-item:not(:last-child)::after{
+
+    content:"♥";
+
+    position:absolute;
+
+    left:115px;
+
+    bottom:-31px;
+
+    transform:translateX(-50%);
+
+    font-size:13px;
+
+    color:var(--gold);
+
+    background:var(--cream);
+
+    padding:3px;
+
+    z-index:3;
+
+}
+
+
+/* =====================================================
+   FINALE
+===================================================== */
+
+.timeline-final{
+
+    grid-template-columns:330px 1fr;
+
+    column-gap:55px;
+
+    align-items:center;
+
+    margin-top:70px;
+
+    margin-bottom:20px;
+
+}
+
+
+.final-photo{
+
+    width:270px;
+
+    height:270px;
+
+    border:4px solid var(--gold);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.15),
+        0 0 0 8px rgba(198,161,91,.08);
+
+}
+
+
+.final-content{
+
+    padding-top:0;
+
+}
+
+
+.final-content h4{
+
+    font-size:27px;
+
+    margin-bottom:0;
+
+}
+
+
+.final-content h4 span{
+
+    font-size:23px;
+
+}
+
+
+.final-content h5{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:52px;
+
+    color:var(--primary);
+
+    margin:0;
+
+    line-height:1.05;
+
+}
+
+
+/* FINALE DECORATIVE DIVIDER */
+
+.final-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:18px 0;
+
+    color:var(--gold);
+
+    font-size:28px;
+
+}
+
+
+.final-divider::before,
+.final-divider::after{
+
+    content:"";
+
+    width:90px;
+
+    height:1px;
+
+    background:var(--gold);
+
+    opacity:.7;
+
+}
+
+
+.final-divider span{
+
+    line-height:1;
+
+}
+
+
+.final-content p{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+
+.final-content p strong{
+
+    display:block;
+
+    color:var(--primary);
+
+    font-size:20px;
 
 }
 
@@ -881,6 +1110,48 @@ header{
     box-shadow:0 25px 50px rgba(0,0,0,.20);
 
 }
+
+/* =====================================================
+   WEDDING DETAILS PHOTO GRID — DESKTOP
+===================================================== */
+
+.wedding-details-grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(6, 1fr);
+
+    gap:20px;
+
+}
+
+
+/* First three photos */
+
+.wedding-details-grid img:nth-child(1),
+.wedding-details-grid img:nth-child(2),
+.wedding-details-grid img:nth-child(3) {
+
+    grid-column:span 2;
+
+}
+
+
+/* Last two photos — centered */
+
+.wedding-details-grid img:nth-child(4) {
+
+    grid-column:2 / span 2;
+
+}
+
+.wedding-details-grid img:nth-child(5) {
+
+    grid-column:4 / span 2;
+
+}
+
+
 /* =====================================================
    RSVP
 ===================================================== */
@@ -1369,7 +1640,7 @@ footer span{
 
     h3{
 
-        font-size:42px;
+        font-size:36px;
 
     }
 
@@ -1380,45 +1651,250 @@ footer span{
     }
 
     /* ==========================
-   TIMELINE
+        TIMELINE
     ========================== */
 
-        .schedule-list{
+    .timeline{
 
-    gap:25px;
+     max-width:100%;
+
+     margin:50px auto 0;
+
+     padding:0 10px;
+
+    }
+
+
+    /* REMOVE DESKTOP LINE */
+
+    .timeline::before{
+
+     display:none;
+
+    }
+
+
+    /* STORY ITEM */
+
+    .timeline-item{
+
+     display:flex;
+
+     flex-direction:column;
+
+     align-items:center;
+
+     width:100%;
+
+     min-height:auto;
+
+     margin-bottom:40px;
+
+    }
+
+
+    /* PHOTO */
+
+    .timeline-photo{
+
+     width:110px;
+
+     height:110px;
+
+     margin:0 auto 18px;
+
+    }
+
+
+    /* CONTENT */
+
+    .timeline-content{
+
+     width:100%;
+
+     padding-top:0;
+
+     text-align:center;
+
+    }
+
+
+    .timeline-content h4{
+
+     font-size:20px;
+
+     line-height:1.2;
+
+     margin-bottom:10px;
+
+    }
+
+
+    .timeline-content h4 span{
+
+     font-size:11px;
+
+     margin-right:1px;
+
+    }
+
+
+    .timeline-content p{
+
+     max-width:300px;
+
+     margin:0 auto;
+
+     font-size:12px;
+
+     line-height:1.65;
+
+    }
+
+
+    /* HEART BETWEEN STORIES */
+
+    .timeline-item:not(:last-child)::after{
+
+     position:static;
+
+     display:block;
+
+     transform:none;
+
+     margin-top:20px;
+
+     font-size:12px;
+
+     padding:0;
+
+    }
+
+
+    /* ==========================
+   FINALE
+    ========================== */
+
+    .timeline-final{
+
+     display:flex;
+
+     flex-direction:column;
+
+     align-items:center;
+
+     gap:0;
+
+     margin-top:20px;
+
+     margin-bottom:10px;
+
+    }
+
+
+    /* BIG FINALE PHOTO */
+
+    .final-photo{
+
+     width:220px;
+
+     height:220px;
+
+     margin-bottom:25px;
+
+     border:3px solid var(--gold);
+
+     box-shadow:
+        0 15px 35px rgba(0,0,0,.15),
+        0 0 0 6px rgba(198,161,91,.10);
+
+    }
+
+
+    /* FINALE TEXT */
+
+    .final-content{
+
+     width:100%;
+
+     text-align:center;
+
+     padding-top:0;
+
+    }
+
+
+    .final-content h4{
+
+     font-size:24px;
+
+     line-height:1.2;
+
+    }
+
+
+    .final-content h4 span{
+
+     font-size:20px;
+
+    }
+
+
+    .final-content h5{
+
+     font-size:45px;
+
+     line-height:1.05;
+
+     margin-top:5px;
+
+    }
+
+
+    /* FINALE DIVIDER */
+
+    .final-divider{
+
+     justify-content:center;
+
+     margin:15px 0;
+
+    }
+
+
+    .final-divider::before,
+        .final-divider::after{
+
+         width:55px;
 
         }
 
-        .schedule-item{
 
-        grid-template-columns:1fr;
+        .final-divider span{
 
-        gap:15px;
-
-        width:100%;
+         font-size:24px;
 
         }
 
-        .schedule-time{
-        
-        order:2;
 
-        width:100%;
+        .final-content p{
 
-        box-sizing:border-box;
+         font-size:17px;
 
-        }
+         line-height:1.65;
 
-        .schedule-content{
+         max-width:500px;
 
-        order:1;
+         margin:0 auto;
 
-        width:100%;
+        }   
 
-        box-sizing:border-box;
 
-        }
+        .final-content p strong{
 
+            font-size:18px;
+
+    }
     /* ==========================
        DETAILS
     ========================== */
@@ -1429,6 +1905,7 @@ footer span{
         gap:20px;
 
     }
+
 
     /* ==========================
        MAPS
@@ -1542,6 +2019,24 @@ footer span{
         letter-spacing:2px;
 
     }
+
+}
+/* ==========================
+   MOBILE TIMELINE FIX
+========================== */
+
+.schedule-list,
+.schedule-item,
+.schedule-content{
+
+    max-width:100%;
+    box-sizing:border-box;
+
+}
+
+.schedule-content{
+
+    min-width:0;
 
 }
 /* =========================================
