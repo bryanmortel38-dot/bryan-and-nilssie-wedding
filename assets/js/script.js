@@ -229,6 +229,8 @@ closeButton.addEventListener("click",()=>{
 
 });
 
+
+
 /* ==========================
    MORE PHOTOS COUNTER
 ========================== */
@@ -309,5 +311,178 @@ window.addEventListener("scroll", () => {
         }
 
     });
+
+});
+
+/* =====================================================
+   WEDDING DETAILS LIGHTBOX
+===================================================== */
+
+const detailsPhotos =
+document.querySelectorAll(".details-photo");
+
+const detailsLightbox =
+document.querySelector(".details-lightbox");
+
+const detailsLightboxImage =
+document.querySelector(".details-lightbox-image");
+
+const detailsCloseButton =
+document.querySelector(".details-close");
+
+let currentDetailsIndex = 0;
+
+
+/* ==========================
+   CREATE NAVIGATION BUTTONS
+========================== */
+
+const detailsPrevButton =
+document.createElement("button");
+
+detailsPrevButton.className = "lightbox-prev";
+detailsPrevButton.innerHTML = "&#10094;";
+
+const detailsNextButton =
+document.createElement("button");
+
+detailsNextButton.className = "lightbox-next";
+detailsNextButton.innerHTML = "&#10095;";
+
+detailsLightbox.appendChild(detailsPrevButton);
+detailsLightbox.appendChild(detailsNextButton);
+
+
+/* ==========================
+   CREATE PHOTO COUNTER
+========================== */
+
+const detailsCounter =
+document.createElement("div");
+
+detailsCounter.className = "lightbox-counter";
+
+detailsLightbox.appendChild(detailsCounter);
+
+
+/* ==========================
+   SHOW PHOTO
+========================== */
+
+function showDetailsPhoto(index){
+
+    currentDetailsIndex = index;
+
+    const photo =
+    detailsPhotos[currentDetailsIndex];
+
+    detailsLightboxImage.src = photo.src;
+
+    detailsCounter.textContent =
+        `${currentDetailsIndex + 1} / ${detailsPhotos.length}`;
+
+}
+
+
+/* ==========================
+   OPEN DETAILS LIGHTBOX
+========================== */
+
+detailsPhotos.forEach((photo,index)=>{
+
+    photo.addEventListener("click",()=>{
+
+        detailsLightbox.classList.add("active");
+
+        showDetailsPhoto(index);
+
+    });
+
+});
+
+
+/* ==========================
+   NEXT PHOTO
+========================== */
+
+detailsNextButton.addEventListener("click",()=>{
+
+    currentDetailsIndex++;
+
+    if(
+        currentDetailsIndex >=
+        detailsPhotos.length
+    ){
+
+        currentDetailsIndex = 0;
+
+    }
+
+    showDetailsPhoto(currentDetailsIndex);
+
+});
+
+
+/* ==========================
+   PREVIOUS PHOTO
+========================== */
+
+detailsPrevButton.addEventListener("click",()=>{
+
+    currentDetailsIndex--;
+
+    if(currentDetailsIndex < 0){
+
+        currentDetailsIndex =
+            detailsPhotos.length - 1;
+
+    }
+
+    showDetailsPhoto(currentDetailsIndex);
+
+});
+
+
+/* ==========================
+   CLOSE DETAILS LIGHTBOX
+========================== */
+
+detailsCloseButton.addEventListener("click",()=>{
+
+    detailsLightbox.classList.remove("active");
+
+});
+
+
+/* ==========================
+   KEYBOARD NAVIGATION
+========================== */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(
+        !detailsLightbox.classList.contains("active")
+    ) return;
+
+
+    if(event.key === "ArrowRight"){
+
+        detailsNextButton.click();
+
+    }
+
+
+    if(event.key === "ArrowLeft"){
+
+        detailsPrevButton.click();
+
+    }
+
+
+    if(event.key === "Escape"){
+
+        detailsCloseButton.click();
+
+    }
 
 });
